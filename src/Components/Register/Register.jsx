@@ -32,13 +32,11 @@ export const Register = () => {
 
   const registerForm = useFormik({
     initialValues: {
+      name: "",
       email: "",
       password: "",
       rePassword: "",
-      name: "",
-      lastName: "",
       phone: "",
-      company: "",
     },
     onSubmit: (values) => {
       signup(values);
@@ -70,9 +68,7 @@ export const Register = () => {
   });
 
   return (
-    <div
-      className="flex min-h-full flex-col justify-center  py-12 lg:px-8 shadow-lg  "
-    >
+    <div className="flex min-h-full flex-col justify-center  py-12 lg:px-8 shadow-lg  ">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Register now
@@ -80,7 +76,7 @@ export const Register = () => {
       </div>
 
       <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-        <div
+        <form
           onSubmit={registerForm.handleSubmit}
           noValidate
           className="space-y-6"
@@ -180,7 +176,7 @@ export const Register = () => {
           <div>
             <div className="flex items-center justify-between">
               <label
-                htmlFor="password"
+                htmlFor="rePassword"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Re-password:
@@ -242,7 +238,7 @@ export const Register = () => {
           <div>
             {signupMessage != "" ? (
               <div
-                className={`flex items-center p-4 mb-4 text-sm  border border-red-300 rounded-lg  dark:bg-gray-800 ${
+                className={`flex items-center p-4 mb-4 text-sm  border border-red-300 rounded-lg  ${
                   signupMessage == "success"
                     ? "dark:text-green-400 text-green-800 bg-green-50 "
                     : "text-red-800 bg-red-50 dark:text-red-400"
@@ -271,7 +267,7 @@ export const Register = () => {
               Register
             </button>
           </div>
-        </div>
+        </form>
 
         <p className="mt-10 text-center text-sm text-gray-500">
           Have an account?
